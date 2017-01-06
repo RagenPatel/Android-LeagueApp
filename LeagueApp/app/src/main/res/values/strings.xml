@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">LeagueApp</string>
+    <string name="riotAPI">*YOUR RIOTGAMES API HERE*</string>
+</resources>
