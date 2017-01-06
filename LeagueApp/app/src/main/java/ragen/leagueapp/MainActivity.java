@@ -5,24 +5,41 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+
+    String region;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button submitButton = (Button) findViewById(R.id.submitButton);
         final ProgressBar progressBar = (ProgressBar)findViewById(R.id.progressBar);
 
         progressBar.setVisibility(View.INVISIBLE);
 
+
+        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.regions_array, android.R.layout.simple_spinner_item);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spinner.setAdapter(adapter);
+
+        spinner.setSelection(0);
+
+        Button submitButton = (Button) findViewById(R.id.submitButton);
 
 
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -48,4 +65,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+        // An item was selected. You can retrieve the selected item using
+        Button submitButton = (Button) findViewById(R.id.submitButton);
+        submitButton.setEnabled(true);
+        region = parent.getItemAtPosition(pos).toString();
+    }
+
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
+        Button submitButton = (Button) findViewById(R.id.submitButton);
+        submitButton.setEnabled(false);
+    }
 }
+
