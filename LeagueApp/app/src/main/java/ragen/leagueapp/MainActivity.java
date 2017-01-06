@@ -42,11 +42,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }, 5000);
 
-
-                Bundle bundle = new Bundle();
-                bundle.putString("summonerName", summonerID);
                 Intent intent = new Intent(progressBar.getContext() , SearchSummonerID.class);
-                intent.putExtras(bundle);
+                intent.putExtra("summonerID", summonerID);
                 startActivity(intent);
             }
         });
