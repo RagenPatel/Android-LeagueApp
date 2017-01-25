@@ -7,31 +7,21 @@
         android:text="RandomUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="18dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="23dp"
         android:id="@+id/summonerNameTextView"
         android:textAllCaps="false"
-        tools:textSize="24sp" />
+        tools:textSize="24sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/summonerNameTextView"
-        android:layout_alignStart="@+id/summonerNameTextView"
         android:layout_marginTop="23dp"
         android:id="@+id/UserInfoTextView"
-        android:textSize="14sp" />
-
-    <Button
-        android:text="Get"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/summonerNameTextView"
-        android:layout_toEndOf="@+id/summonerNameTextView"
-        android:layout_marginStart="37dp"
-        android:id="@+id/getRequestButton" />
+        android:textSize="14sp"
+        android:layout_below="@+id/summonerNameTextView"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

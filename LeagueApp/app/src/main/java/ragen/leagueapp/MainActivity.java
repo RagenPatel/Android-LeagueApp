@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    public String region;
+    public String region = "NA";
     Intent intent;
     Spinner spinner;
 
@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
         spinner = (Spinner) findViewById(R.id.spinner);
-        region = "NA";
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.regions_array, android.R.layout.simple_spinner_item);
@@ -77,6 +76,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         Button submitButton = (Button) findViewById(R.id.submitButton);
         submitButton.setEnabled(true);
         region = spinner.getSelectedItem().toString();
+        System.out.println("New region set to: " + region);
 
 
     }

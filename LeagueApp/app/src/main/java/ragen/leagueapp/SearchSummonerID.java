@@ -43,7 +43,7 @@ public class SearchSummonerID extends MainActivity {
         requestQueue = Volley.newRequestQueue(this);
 
         Intent intent = getIntent();
-        Button getButton = (Button) findViewById(R.id.getRequestButton);
+
         summonerID = intent.getExtras().getString("summonerID");
         region = intent.getExtras().getString("region");
         riotAPI = getResources().getString(R.string.riotAPI);
@@ -56,17 +56,17 @@ public class SearchSummonerID extends MainActivity {
 
         outputName.setText(summonerID);
 
+        getOperation();
 
 
-
-
-
+        /*
         getButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getOperation();
             }
         });
+        */
 
 
     }
