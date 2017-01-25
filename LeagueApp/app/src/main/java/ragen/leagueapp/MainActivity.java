@@ -16,7 +16,9 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    String region;
+    public String region;
+    Intent intent;
+    Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         progressBar.setVisibility(View.INVISIBLE);
 
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = (Spinner) findViewById(R.id.spinner);
+        region = "NA";
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.regions_array, android.R.layout.simple_spinner_item);
@@ -59,8 +62,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     }
                 }, 5000);
 
-                Intent intent = new Intent(progressBar.getContext() , SearchSummonerID.class);
+                intent = new Intent(progressBar.getContext() , SearchSummonerID.class);
                 intent.putExtra("summonerID", summonerID);
+                System.out.println("MainActivity: " + region);
+                intent.putExtra("region", region);
                 startActivity(intent);
             }
         });
@@ -71,7 +76,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // An item was selected. You can retrieve the selected item using
         Button submitButton = (Button) findViewById(R.id.submitButton);
         submitButton.setEnabled(true);
-        region = parent.getItemAtPosition(pos).toString();
+        region = spinner.getSelectedItem().toString();
+
+
     }
 
     public void onNothingSelected(AdapterView<?> parent) {

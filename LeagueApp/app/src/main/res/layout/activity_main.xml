@@ -16,8 +16,8 @@
         android:layout_marginTop="12dp"
         android:id="@+id/spinner"
         android:layout_below="@+id/userText"
-        android:layout_alignStart="@+id/userText"
-        android:layout_alignEnd="@+id/submitButton" />
+        android:layout_alignEnd="@+id/userText"
+        android:layout_alignStart="@+id/userText" />
 
     <ProgressBar
         style="?android:attr/progressBarStyleSmall"
@@ -35,7 +35,7 @@
         android:id="@+id/submitButton"
         android:layout_below="@+id/progressBar"
         android:layout_centerHorizontal="true"
-        android:layout_width="300px" />
+        android:layout_width="350px" />
 
     <EditText
         android:layout_width="wrap_content"

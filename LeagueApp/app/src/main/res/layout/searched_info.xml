@@ -25,4 +25,13 @@
         android:id="@+id/UserInfoTextView"
         android:textSize="14sp" />
 
+    <Button
+        android:text="Get"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/summonerNameTextView"
+        android:layout_toEndOf="@+id/summonerNameTextView"
+        android:layout_marginStart="37dp"
+        android:id="@+id/getRequestButton" />
+
 </RelativeLayout>

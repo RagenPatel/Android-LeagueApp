@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">LeagueApp</string>
-    <string name="riotAPI">*YOUR RIOTGAMES API HERE*</string>
+    <string name="riotAPI">c6f81fdd-d131-4ae2-b100-934362df5e1e</string>
 
     <string-array name="regions_array">
         <item>NA</item>
