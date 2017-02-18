@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 //get username
                 TextView textBox = (TextView) findViewById(R.id.userText);
                 String summonerID = textBox.getText().toString();
+                summonerID = formatInput(summonerID);
 
                 progressBar.setVisibility(View.VISIBLE);
                 Toast.makeText(progressBar.getContext(), "Searching", Toast.LENGTH_SHORT).show();
@@ -90,6 +91,19 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+
+    private String formatInput(String name) {
+        String formattedName = "";
+
+        for(int i = 0; i < name.length(); i++) {
+            if(name.charAt(i) != ' ') {
+                formattedName+=name.charAt(i);
+            }
+        }
+
+
+        return formattedName;
     }
 }
 
