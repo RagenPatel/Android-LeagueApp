@@ -10,9 +10,10 @@
         android:layout_marginTop="23dp"
         android:id="@+id/summonerNameTextView"
         android:textAllCaps="false"
-        tools:textSize="24sp"
+        tools:textSize="32sp"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorAccent" />
 
     <TextView
         android:text="TextView"

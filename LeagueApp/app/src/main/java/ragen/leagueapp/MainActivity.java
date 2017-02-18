@@ -14,18 +14,19 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class MainActivity extends AppCompatActivity {
 
     public String region = "NA";
     Intent intent;
     Spinner spinner;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        final ProgressBar progressBar = (ProgressBar)findViewById(R.id.progressBar);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         progressBar.setVisibility(View.INVISIBLE);
 
@@ -53,7 +54,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 String summonerID = textBox.getText().toString();
 
                 progressBar.setVisibility(View.VISIBLE);
-                Toast.makeText(progressBar.getContext() , "Searching", Toast.LENGTH_SHORT).show();
+                Toast.makeText(progressBar.getContext(), "Searching", Toast.LENGTH_SHORT).show();
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
@@ -61,30 +62,34 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                     }
                 }, 5000);
 
-                intent = new Intent(progressBar.getContext() , SearchSummonerID.class);
+                intent = new Intent(progressBar.getContext(), SearchSummonerID.class);
                 intent.putExtra("summonerID", summonerID);
                 System.out.println("MainActivity: " + region);
                 intent.putExtra("region", region);
                 startActivity(intent);
             }
         });
-    }
-
-    public void onItemSelected(AdapterView<?> parent, View view,
-                               int pos, long id) {
-        // An item was selected. You can retrieve the selected item using
-        Button submitButton = (Button) findViewById(R.id.submitButton);
-        submitButton.setEnabled(true);
-        region = spinner.getSelectedItem().toString();
-        System.out.println("New region set to: " + region);
 
 
-    }
+        //Changes region based on which item is selected in the spinner
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                // An item was selected. You can retrieve the selected item using
+                Button submitButton = (Button) findViewById(R.id.submitButton);
+                submitButton.setEnabled(true);
+                region = spinner.getSelectedItem().toString();
+                System.out.println("New region set to: " + region);
+            }
 
-    public void onNothingSelected(AdapterView<?> parent) {
-        // Another interface callback
-        Button submitButton = (Button) findViewById(R.id.submitButton);
-        submitButton.setEnabled(false);
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                Button submitButton = (Button) findViewById(R.id.submitButton);
+                submitButton.setEnabled(false);
+            }
+        });
+
+
     }
 }
 
