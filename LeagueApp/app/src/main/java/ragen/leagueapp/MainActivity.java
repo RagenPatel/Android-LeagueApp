@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
         progressBar.setVisibility(View.INVISIBLE);
 
-
         spinner = (Spinner) findViewById(R.id.spinner);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,

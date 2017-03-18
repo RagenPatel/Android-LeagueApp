@@ -1,5 +1,7 @@
 package ragen.leagueapp;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.nfc.Tag;
 import android.os.Bundle;
@@ -58,17 +60,6 @@ public class SearchSummonerID extends MainActivity {
 
         getOperation();
 
-
-        /*
-        getButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getOperation();
-            }
-        });
-        */
-
-
     }
 
     protected void getOperation() {
@@ -93,8 +84,12 @@ public class SearchSummonerID extends MainActivity {
                         // TODO Auto-generated method stub
 
                         System.out.println("Error: " + error.getMessage());
+                        new AlertDialog.Builder(outputDetails.getContext())
+                                .setTitle("Error")
+                                .setMessage("Invalid username for " + region +" server.")
+                                .show();
 
-
+                        outputDetails.setText("");
                     }
                 });
 
